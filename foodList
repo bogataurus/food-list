@@ -1,0 +1,95 @@
+author__ = "taurus"
+import tkinter as tk
+import random
+
+# main
+window = tk.Tk()
+window.title("haftalık yemek listesi")
+window.geometry("400x600")
+window.configure(bg =  "lawngreen")
+
+# GUI title
+title1 = tk.Label(text = "MENÜ", bg = "lawngreen", fg ="black", font = "none 10 bold")
+title1.grid()
+
+# main programdata
+
+def getir():
+    pazartesiSalı = ["yoğurtlu ıspanak","karnı yarık","etli yaprak sarma","sebzeli türlü","etli lahana dolması","zeytin yağlı pırasa","biber dolması", "bezelye pilav", "etli patates", "taze fasulye", "karnıbahar"]
+
+    carsambaPersembe = ["islim kebabı","ekşili köfte","patlıcan kebabı","etli orman kebabı","dalyan köfte püre", "rosto püre", "sulu köfte", "izmir köfte"]
+
+    cumaCumartesi = ["pastırmalı kuru fasulye pilav", "etli nohut pilav ", "kıymalı mercimek"]
+
+    pazar = ["ton balıklı makarna","hamburger","et kavurma","köfte patates","kuzu tandır","bonfile makarna","kilis tava","kuzu incik haşlama"]
+
+    liste1 = random.choice(pazartesiSalı)
+
+    entry1.insert(0, liste1)
+
+    liste2 = random.choice(carsambaPersembe)
+
+    entry2.insert(0, liste2)
+
+    liste3 = random.choice(cumaCumartesi)
+
+    entry3.insert(0, liste3)
+
+    liste4 = random.choice(pazar)
+
+    entry4.insert(0, liste4)
+
+# Data entry in tags
+
+label1 = tk.Label(text = "PAZARTESİ-SALI: ", bg = "lawngreen", fg ="black", font = "none 10 bold" )
+label1.grid(column = 0, row = 1)
+
+label2 = tk.Label(text = "ÇARŞAMBA-PERŞEMBE: ", bg = "lawngreen", fg ="black", font = "none 10 bold")
+label2.grid(column = 0, row = 2)
+
+label3 = tk.Label(text = "CUMA-CUMARTESİ: ", bg = "lawngreen", fg ="black", font = "none 10 bold")
+label3.grid(column = 0, row = 3)
+
+label4 = tk.Label(text = "PAZAR: ", bg = "lawngreen", fg ="black", font = "none 10 bold")
+label4.grid(column = 0, row = 4)
+
+# Data input text fields:
+
+entry1 = tk.Entry()
+entry1.grid(column = 1, row = 1)
+
+entry2 = tk.Entry()
+entry2.grid(column = 1, row = 2)
+
+entry3 = tk.Entry()
+entry3.grid(column = 1, row = 3)
+
+entry4 = tk.Entry()
+entry4.grid(column = 1, row = 4)
+
+# Calculation button program run:
+
+button1 = tk.Button(text = "GETİR", font = "none 8 bold",fg = "black", command = getir)
+button1.grid(column = 0, row = 6)
+
+# exit from function:
+def close_window():
+    window.destroy()   
+    exit()
+
+# Exit button:
+button2 = tk.Button(text = "ÇIKIŞ",fg = "black", font = "none 8 bold", command = close_window)
+button2.grid(column = 0, row = 8)
+
+# clear from function:
+def clear():
+    entry1.delete(0,"end")
+    entry2.delete(0,"end")
+    entry3.delete(0,"end")
+    entry4.delete(0,"end")
+
+# clear button:
+button3 = tk.Button(text = "SİL",fg = "black", font = "none 8 bold", command = clear)
+button3.grid(column = 0, row = 7)
+
+window.mainloop()
